@@ -16,7 +16,7 @@ public class Start {
 
   private static void doVulnerableCode() throws SQLException {
 
-    Connection conn = DriverManager.getConnection("jdbc:derby:memory:myDB;create=true", "login", "");
+    Connection conn = DriverManager.getConnection("jdbc:derby:memory:myDB;create=true", "login", "test");
   }
 
   private static void doVulnerableCode(String output) throws SQLException {
