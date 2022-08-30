@@ -24,6 +24,12 @@ public class Start {
     System.out.println(output);
   }
 
+  private static void doVulnerableCode(boolean bool) throws SQLException {
+    if (bool) {
+      DriverManager.getConnection("jdbc:derby:memory:myDB;create=true", "login", "");
+    }
+  }
+
 
 
 }
