@@ -15,10 +15,12 @@ public class Start {
   }
 
   private static void doVulnerableCode() throws SQLException {
+
     Connection conn = DriverManager.getConnection("jdbc:derby:memory:myDB;create=true", "login", "");
   }
 
   private static void doVulnerableCode(String output) throws SQLException {
+
     Connection conn = DriverManager.getConnection("jdbc:derby:memory:myDB;create=true", "login", "");
     System.out.println(output);
   }
