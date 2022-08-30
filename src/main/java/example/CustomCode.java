@@ -14,4 +14,12 @@ public class CustomCode {
       throw new RuntimeException(e);
     }
   }
+
+  public void myVulnerability() {
+    try {
+      DriverManager.getConnection("jdbc:derby:memory:myDB;create=true", "login", "");
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    }
+  }
 }
