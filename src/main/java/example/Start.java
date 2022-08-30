@@ -1,13 +1,21 @@
 package example;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class Start {
 
   public static void main(String[] args) {
+    try {
       doVulnerableCode();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    }
   }
 
-  private static void doVulnerableCode() {
-    //to be implemented
+  private static void doVulnerableCode() throws SQLException {
+    Connection conn = DriverManager.getConnection("jdbc:derby:memory:myDB;create=true", "login", "");
   }
 
 }
