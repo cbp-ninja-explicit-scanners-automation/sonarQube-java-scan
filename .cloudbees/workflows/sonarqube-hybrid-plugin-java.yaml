@@ -4,9 +4,9 @@ apiVersion: automation.cloudbees.io/v1alpha1
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - 'master'
+  push:
+    branches:
+      - 'master'
 
 permissions:
   scm-token-own: read
