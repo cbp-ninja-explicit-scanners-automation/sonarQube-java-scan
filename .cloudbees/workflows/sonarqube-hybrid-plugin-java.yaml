@@ -18,6 +18,12 @@ jobs:
     steps:        
       - name: checkout Source Code
         uses: cloudbees-io/checkout@v1
+        
+      - name: Grant execute permission for Gradle wrapper
+        run: chmod +x ./gradlew
+
+      - name: Build project (compile classes)
+        run: ./gradlew build
 
       - name: Setup sonarqube explicit scanner with community edition
         uses: cloudbees-io/sonarqube-plugin@v1
