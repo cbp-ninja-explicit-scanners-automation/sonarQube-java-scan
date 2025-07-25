@@ -1,0 +1,40 @@
+name: SonarQube Analysis
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  #   branches:
+  #     - main
+
+jobs:
+  build:
+    name: SonarQube
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'  # Or the version you use
+
+      - name: Grant execute permission for Gradle wrapper
+        run: chmod +x ./gradlew
+
+      - name: Build project (compile classes)
+        run: ./gradlew build
+
+      # - name: Run SonarQube analysis
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   run: ./gradlew sonarqube \
+      #         -Dsonar.projectKey=<your_project_key> \
+      #         -Dsonar.organization=<your_org_if_using_sonarcloud> \
+      #         -Dsonar.host.url=<https://your-sonar-url> \
+      #         -Dsonar.login=${{ secrets.SONAR_TOKEN }}
