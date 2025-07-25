@@ -18,6 +18,9 @@ jobs:
     steps:        
       - name: checkout Source Code
         uses: cloudbees-io/checkout@v1
+        
+      - name: Compile classes
+        uses: docker://gradle:8.5-jdk17
         run: | 
          echo "Build project (compile classes)"
          chmod +x ./gradlew && sleep 2 && \
